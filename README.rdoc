@@ -1,0 +1,14 @@
+== README
+
+This apps contains the following features:
+		- Present a list of campaigns for which we have results.
+    - When the user clicks on a campaign, present a list of the
+     candidates, their scores, and the number of messages which were sent in
+     but not counted
+		 
+		- I just implemented RestAPI to view the list of campaigns and candidate results.
+		
+		- So please use,
+		
+		/api/v1/campaign - to view the list of campaigns
+    /api/v1/campaign/:id - To view the campaigns list of candidate 

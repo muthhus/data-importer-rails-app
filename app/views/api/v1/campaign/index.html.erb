@@ -1,0 +1,22 @@
+<h1 align="center">List of Campaign</h1>
+
+<table border=1 align="center">
+	<tr>
+		<th>Name</th>
+		<th>Score</th>
+		<th>During</th>
+		<th>Pre & Post Messages</th>
+	</tr>
+	<% @campaign.uniq.each do |c| %>
+		<% @com =  Campaign.where('campaign =?',c).count %>
+		<% total = Campaign.campaign_count(c) -%>
+		<% during = Campaign.campaign_during(c) -%>
+		<% pre_post = Campaign.campaign_pre(c) -%>
+		<tr>
+			<td><%= link_to c, api_v1_campaign_path(c), :id =>'link'%></td>
+			<td><%= total -%></td>
+			<td><%= during -%></td>
+			<td><%= pre_post -%></td>
+		</tr>
+	<% end %>
+</table>

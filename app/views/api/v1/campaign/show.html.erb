@@ -1,0 +1,19 @@
+<h1 align="center">Campaign - <%= params[:id]%>(Total Scores:<%= @campaigns.count -%>)</h1>
+<br/>
+
+<table border=1 align="center">
+	<tr>
+		<th>Candidate Name</th>
+		<th>Scores</th>
+		<th>Pre & Post Messages</th>
+	</tr>
+<% @candidate.each do |candidate| -%>
+	<% @candidate_vote = Campaign.during_final(params[:id], candidate)-%>
+	<% @candidate_vote1 = Campaign.pre_and_post_final(params[:id], candidate)-%>
+		<tr class="candidate-row" id="candidate_count">
+			<td class="name"><%= candidate -%></td>
+			<td class="during"><%= @candidate_vote.count -%></td>
+			<td><%= @candidate_vote1.count %></td>
+		</tr>
+	<% end %>
+</table>
